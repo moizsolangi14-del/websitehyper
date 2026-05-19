@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyperMC | Live Server Status</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Modern Google Font -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">HYPER<span>MC</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="store.html">Store</a>
+            <a href="players.html" class="active">Online Players</a>
+            <a href="https://discord.gg/hDev8ZUW9P" target="_blank">Discord</a>
+        </nav>
+    </header>
+
+    <!-- Status Container -->
+    <main class="status-container">
+        <div class="status-card">
+            <h2>Server Live Status</h2>
+            <p class="server-ip-display">IP: play.hypermc.fun</p>
+            
+            <!-- Real-time Stats -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-label">Status</span>
+                    <span id="serverStatus" class="stat-value loading">Loading...</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Online Players</span>
+                    <span id="playerCount" class="stat-value">0 / 0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Version</span>
+                    <span id="serverVersion" class="stat-value">-</span>
+                </div>
+            </div>
+
+            <!-- Online Players List -->
+            <div class="player-list-section">
+                <h3>Online Players List</h3>
+                <div id="playerList" class="player-grid">
+                    <!-- Players ke avatar aur naam JavaScript se yahan aayenge -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 100% Real Live Production JavaScript Script -->
+    <script>
+        // Aapka original server IP address
+        const serverIP = 'play.hypermc.fun'; 
+
+        async function fetchServerStatus() {
+            try {
+                // Production-ready public Minecraft status API [1]
+                const response = await fetch(`https://mcsrvstat.us{serverIP}`);
+                if (!response.ok) throw new Error('API connection failed');
+                const data = await response.json();
+
+                const statusEl = document.getElementById('serverStatus');
+                const countEl = document.getElementById('playerCount');
+                const versionEl = document.getElementById('serverVersion');
+                const listEl = document.getElementById('playerList');
+
+                if (data.online === true) {
+                    // Jab server online hoga
+                    statusEl.innerText = "ONLINE";
+                    statusEl.className = "stat-value online";
+                    countEl.innerText = `${data.players.online} / ${data.players.max}`;
+                    versionEl.innerText = data.version || "1.20+";
+
+                    listEl.innerHTML = ""; 
+                    // Agar players online hain aur unki list public hai
+                    if (data.players.list && data.players.list.length > 0) {
+                        data.players.list.forEach(player => {
+                            const playerCard = `
+                                <div class="player-head-card">
+                                    <img src="https://crafatar.com{player}?size=32&overlay" alt="${player}">
+                                    <span>${player}</span>
+                                </div>
+                            `;
+                            listEl.innerHTML += playerCard;
+                        });
+                    } else {
+                        listEl.innerHTML = `<p class="no-players">No players online right now or player list is hidden in server.properties.</p>`;
+                    }
+                } else {
+                    // Jab server offline hoga
+                    statusEl.innerText = "OFFLINE";
+                    statusEl.className = "stat-value offline";
+                    countEl.innerText = "0 / 0";
+                    versionEl.innerText = "-";
+                    listEl.innerHTML = `<p class="no-players">Server is currently offline.</p>`;
+                }
+            } catch (error) {
+                console.error("Error details:", error);
+                document.getElementById('serverStatus').innerText = "ERROR";
+                document.getElementById('serverStatus').className = "stat-value offline";
+                document.getElementById('playerList').innerHTML = `<p class="no-players">Unable to retrieve status. Server might be offline.</p>`;
+            }
+        }
+
+        // Page load hote hi first call karein
+        fetchServerStatus();
+        // Har 30 seconds me actual background auto-refresh
+        setInterval(fetchServerStatus, 30000);
+    </script>
+
+</body>
+</html>

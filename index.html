@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyperMC | Official Minecraft Network</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Modern Google Font -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- FontAwesome Icons for Discord & Copy buttons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">HYPER<span>MC</span></div>
+<nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="store.html">Store</a>
+    <a href="players.html">Online Players</a>
+    <a href="https://discord.gg/hDev8ZUW9P" target="_blank">Discord</a>
+</nav>
+    </header>
+
+    <!-- Main Home Hero Section -->
+    <section class="home-hero">
+        <div class="hero-content">
+            <span class="welcome-badge">🚀 WELCOME TO THE NEXT GEN NETWORK</span>
+            <h1>EXPERIENCE THE <br>ULTIMATE <span>HYPERMC</span></h1>
+            <p>Join thousands of players in an epic adventure filled with custom game modes, competitive events, and a friendly community.</p>
+            
+            <!-- Dynamic CTA Buttons -->
+            <div class="cta-buttons">
+                <button class="ip-btn" id="copyIP">
+                    <i class="fa-solid fa-copy"></i> IP: play.hypermc.fun
+                </button>
+                <a href="store.html" class="store-btn">
+                    <i class="fa-solid fa-shopping-cart"></i> Visit Store
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="section-title">
+            <h2>Why Play On <span>HyperMC?</span></h2>
+            <p>We offer the best performance and unique features for our players</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-box">
+                <i class="fa-solid fa-bolt feature-icon"></i>
+                <h3>Lag-Free Gameplay</h3>
+                <p>Hosted on high-end dedicated servers ensuring 20 TPS and ultra-low ping.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-shield-halved feature-icon"></i>
+                <h3>Custom Plugins</h3>
+                <p>Unique game mechanics, custom enchants, and features you won't find anywhere else.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-users feature-icon"></i>
+                <h3>Active Staff</h3>
+                <p>Our dedicated staff team is always online to help you and keep the game fair.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Copy IP Script -->
+    <script>
+        document.getElementById('copyIP').addEventListener('click', function() {
+            navigator.clipboard.writeText('play.hypermc.fun');
+            let originalText = this.innerHTML;
+            this.innerHTML = '<i class="fa-solid fa-check"></i> IP Copied!';
+            this.style.background = '#00ff66';
+            this.style.color = '#000';
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.background = 'linear-gradient(45deg, #00f0ff, #7000ff)';
+                this.style.color = '#fff';
+            }, 2000);
+        });
+    </script>
+
+</body>
+</html>

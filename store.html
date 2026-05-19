@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyperMC | Official Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Modern Google Font -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">HYPER<span>MC</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="store.html" class="active">Store</a>
+            <a href="players.html">Online Players</a>
+            <a href="https://discord.gg/hDev8ZUW9P" target="_blank">Discord</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>HYPER<span>MC</span> WEBSTORE</h1>
+        <p>Support the network! Unlock ultimate ranks, custom crate keys, and exclusive in-game perks.</p>
+        
+        <!-- Interactive Click-to-Copy IP Button -->
+        <div class="server-ip copyable-ip" id="storeIP">
+            <i class="fa-solid fa-copy"></i> IP: play.hypermc.fun
+        </div>
+    </section>
+
+    <!-- Main Store Content -->
+    <main class="store-container">
+        
+        <!-- Category Sidebar -->
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <button class="cat-btn active" onclick="switchCategory('all')">All Products</button>
+            <button class="cat-btn" onclick="switchCategory('ranks')">Server Ranks</button>
+            <button class="cat-btn" onclick="switchCategory('keys')">Crate Keys</button>
+        </aside>
+
+        <!-- Products Grid -->
+        <section class="products-grid">
+            
+            <!-- ================= RANKS SECTION ================= -->
+            
+            <!-- Rank 1: Chicken -->
+            <div class="card product-item" data-category="ranks">
+                <div class="badge" style="background: #ffaa00;">Tier 1</div>
+                <div class="product-icon-box" style="background: rgba(255, 170, 0, 0.1); color: #ffaa00;">
+                    <i class="fa-solid fa-egg"></i>
+                </div>
+                <h2>CHICKEN RANK</h2>
+                <p class="price">RS 70</p>
+                <p class="desc">Unlock the [Chicken] prefix, access to /feed command, 1x Basic Kit, and yellow chat color.</p>
+                <button class="buy-btn" onclick="openCheckout('CHICKEN RANK', 'RS 70')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+            <!-- Rank 2: Fox -->
+            <div class="card product-item" data-category="ranks">
+                <div class="badge" style="background: #ff5500;">Tier 2</div>
+                <div class="product-icon-box" style="background: rgba(255, 85, 0, 0.1); color: #ff5500;">
+                    <i class="fa-solid fa-paw"></i>
+                </div>
+                <h2>FOX RANK</h2>
+                <p class="price">RS 160</p>
+                <p class="desc">Unlock [Fox] prefix, access to /hat, 2x Home slots, Fox Kit, and orange chat color.</p>
+                <button class="buy-btn" onclick="openCheckout('FOX RANK', 'RS 160')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+            <!-- Rank 3: Witch -->
+            <div class="card product-item" data-category="ranks">
+                <div class="badge" style="background: #aa00aa;">Tier 3</div>
+                <div class="product-icon-box" style="background: rgba(170, 0, 170, 0.1); color: #aa00aa;">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h2>WITCH RANK</h2>
+                <p class="price">RS 250</p>
+                <p class="desc">Unlock [Witch] prefix, /craft (portable workbench), Witch Kit, and purple particle effects.</p>
+                <button class="buy-btn" onclick="openCheckout('WITCH RANK', 'RS 250')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+            <!-- Rank 4: Squid -->
+            <div class="card product-item" data-category="ranks">
+                <div class="badge" style="background: #00aaaa;">Tier 4</div>
+                <div class="product-icon-box" style="background: rgba(0, 170, 170, 0.1); color: #00aaaa;">
+                    <i class="fa-solid fa-fish"></i>
+                </div>
+                <h2>SQUID RANK</h2>
+                <p class="price">RS 320</p>
+                <p class="desc">Unlock [Squid] prefix, permanent Water Breathing perk, /condense, and Cyan chat title.</p>
+                <button class="buy-btn" onclick="openCheckout('SQUID RANK', 'RS 320')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+            <!-- Rank 5: Creeper -->
+            <div class="card product-item" data-category="ranks">
+                <div class="badge" style="background: #55ff55; color: #000;">Popular</div>
+                <div class="product-icon-box" style="background: rgba(85, 255, 85, 0.1); color: #55ff55;">
+                    <i class="fa-solid fa-bomb"></i>
+                </div>
+                <h2>CREEPER RANK</h2>
+                <p class="price">RS 400</p>
+                <p class="desc">Unlock [Creeper] prefix, /ec (enderchest anywhere), /fly command, and custom explosive rejoins.</p>
+                <button class="buy-btn" onclick="openCheckout('CREEPER RANK', 'RS 400')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+            <!-- Rank 6: Goat -->
+            <div class="card product-item" data-category="ranks">
+                <div class="badge" style="background: #ffffff; color: #000;">ULTIMATE</div>
+                <div class="product-icon-box" style="background: rgba(255, 255, 255, 0.1); color: #ffffff;">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <h2>GOAT RANK</h2>
+                <p class="price">RS 530</p>
+                <p class="desc">The Ultimate Server Rank. [GOAT] prefix, /heal, /feed, /fly, Priority Queue, and ALL custom kits.</p>
+                <button class="buy-btn" onclick="openCheckout('GOAT RANK', 'RS 530')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+            <!-- ================= CRATES KEYS SECTION ================= -->
+
+            <!-- Key 1: Legendary -->
+            <div class="card product-item" data-category="keys">
+                <div class="badge" style="background: #ff3300;">Top Tier</div>
+                <div class="product-icon-box" style="background: rgba(255, 51, 0, 0.1); color: #ff3300;">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+                <h2>LEGENDARY CRATE KEY</h2>
+                <p class="price">RS 300</p>
+                <p class="desc">Unlock the legendary chest at spawn. High chance to get dynamic items and high tier custom sets.</p>
+                <button class="buy-btn" onclick="openCheckout('LEGENDARY KEY', 'RS 300')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+            <!-- Key 2: Premium -->
+            <div class="card product-item" data-category="keys">
+                <div class="product-icon-box" style="background: rgba(0, 240, 255, 0.1); color: #00f0ff;">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+                <h2>PREMIUM CRATE KEY</h2>
+                <p class="price">RS 250</p>
+                <p class="desc">Open the premium crate at spawn for exclusive tools, rank vouchers, and drop multipliers.</p>
+                <button class="buy-btn" onclick="openCheckout('PREMIUM KEY', 'RS 250')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+            <!-- Key 3: Seasonal -->
+            <div class="card product-item" data-category="keys">
+                <div class="product-icon-box" style="background: rgba(212, 175, 55, 0.1); color: #d4af37;">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h2>SEASONAL CRATE KEY</h2>
+                <p class="price">RS 150</p>
+                <p class="desc">Unlock special time-limited server rewards, event collectibles, and rare tag titles.</p>
+                <button class="buy-btn" onclick="openCheckout('SEASONAL KEY', 'RS 150')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+            <!-- Key 4: Ultimate -->
+            <div class="card product-item" data-category="keys">
+                <div class="product-icon-box" style="background: rgba(112, 0, 255, 0.1); color: #7000ff;">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h2>ULTIMATE CRATE KEY</h2>
+                <p class="price">RS 60</p>
+                <p class="desc">Get awesome value rewards including standard resources, server experience, and base kits.</p>
+                <button class="buy-btn" onclick="openCheckout('ULTIMATE KEY', 'RS 60')">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- JavaScript Filters, Checkout & Click-to-Copy Engine -->
+    <script>
+        // Category Switcher Function
+        function switchCategory(category) {
+            const buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if(event) {
+                event.target.classList.add('active');
+            }
+
+            const items = document.querySelectorAll('.product-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Username Checkout to Discord Redirect
+        function openCheckout(productName, price) {
+            const username = prompt("Please enter your Minecraft Username to confirm purchase:");
+            if (username === null || username.trim() === "") {
+                alert("Purchase canceled. Minecraft username is required!");
+            } else {
+                alert(`Thank you ${username}! Redirecting to HyperMC Discord server for processing the purchase of ${productName} (${price}).`);
+                // Direct redirect to your discord link in new window tab
+                window.open("https://discord.gg/hDev8ZUW9P", "_blank");
+            }
+        }
+
+        // Click-To-Copy IP Engine
+        document.getElementById('storeIP').addEventListener('click', function() {
+            navigator.clipboard.writeText('play.hypermc.fun');
+            showToast();
+        });
+
+        // Dynamic Floating Alert Function
+        function showToast() {
+            let existingToast = document.querySelector('.ip-toast');
+            if (existingToast) existingToast.remove();
+
+            let toast = document.createElement('div');
+            toast.className = 'ip-toast';
+            toast.innerHTML = '<i class="fa-solid fa-circle-check"></i> IP Copied Successfully!';
+            document.body.appendChild(toast);
+            
+            setTimeout(() => { toast.classList.add('show'); }, 100);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => { toast.remove(); }, 300);
+            }, 2500);
+        }
+    </script>
+
+</body>
+</html>
